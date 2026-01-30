@@ -1,31 +1,56 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #0b0b0b;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color: white;
 }
 
-/* Banner */
+/* ===== Banner ===== */
 .banner {
-  text-align: center;
-  padding: 120px 20px;
-  background: radial-gradient(circle at top,#1a1a1a,#000);
+  padding: 120px 10%;
+  background: linear-gradient(135deg,#141e30,#243b55);
 }
 
+.intro-wrap {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Profile photo */
+.profile {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+
+/* Text */
 .name {
-  font-size: 80px;
+  font-size: 72px;
   font-weight: 800;
+  margin: 0;
 }
 
 .alias {
-  opacity: .6;
+  opacity: .7;
+  margin-bottom: 25px;
 }
 
+/* About alignment fix */
+.about {
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ===== Sections ===== */
 .section {
   padding: 70px 10%;
 }
 
-/* Grid */
+/* ===== Gallery ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -43,7 +68,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Filter buttons */
+/* ===== Filter buttons ===== */
 .filters {
   margin-bottom: 25px;
   display: flex;
@@ -51,8 +76,8 @@ body {
 }
 
 .filters button {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: #ffffff15;
+  border: 1px solid #ffffff30;
   color: white;
   padding: 8px 14px;
   border-radius: 20px;
@@ -64,11 +89,7 @@ body {
   color: black;
 }
 
-.hide {
-  display: none;
-}
-
-/* Horizontal reels */
+/* ===== Reels row ===== */
 .reel-row {
   display: flex;
   gap: 20px;
@@ -79,7 +100,20 @@ body {
   min-width: 260px;
 }
 
-/* Fade animation */
+/* ===== Contact ===== */
+.contact {
+  padding: 70px;
+  text-align: center;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+}
+
+.contact-item {
+  margin: 12px 0;
+  font-size: 18px;
+}
+
+/* ===== Animations ===== */
 .fade {
   opacity: 0;
   transform: translateY(40px);
@@ -91,14 +125,7 @@ body {
   transform: translateY(0);
 }
 
-/* Contact */
-.contact {
-  text-align: center;
-  padding: 60px;
-  background: black;
-}
-
-/* Lightbox */
+/* ===== Lightbox ===== */
 #lightbox {
   display: none;
   position: fixed;
