@@ -1,4 +1,4 @@
-/* Fade in */
+/* ================= Fade animation ================= */
 const faders = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver(entries => {
@@ -10,7 +10,7 @@ const observer = new IntersectionObserver(entries => {
 faders.forEach(el => observer.observe(el));
 
 
-/* Lightbox */
+/* ================= Lightbox ================= */
 const imgs = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightImg = document.getElementById('lightbox-img');
@@ -27,22 +27,27 @@ close.onclick = () => lightbox.style.display = 'none';
 lightbox.onclick = () => lightbox.style.display = 'none';
 
 
-/* Filtering */
+/* ================= Filter buttons (FIXED) ================= */
 const buttons = document.querySelectorAll('.filters button');
-const photos = document.querySelectorAll('.gallery img[data-cat]');
+const photos = document.querySelectorAll('.gallery img');
 
-buttons.forEach(btn => {
-  btn.onclick = () => {
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+
     buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    button.classList.add('active');
 
-    const filter = btn.dataset.filter;
+    const filter = button.dataset.filter;
 
-    photos.forEach(img => {
-      if (filter === 'all' || img.dataset.cat === filter)
-        img.classList.remove('hide');
-      else
-        img.classList.add('hide');
+    photos.forEach(photo => {
+      const category = photo.dataset.cat;
+
+      if (filter === 'all' || category === filter) {
+        photo.style.display = 'block';
+      } else {
+        photo.style.display = 'none';
+      }
     });
-  };
+
+  });
 });
