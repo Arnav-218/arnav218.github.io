@@ -467,27 +467,6 @@ body::after {
   100% { transform: translate(0,0); }
 }
 
-
-/* ======================================================
-   3. Spotlight Cursor
-   ====================================================== */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-
-  background: radial-gradient(
-    circle 180px at var(--x) var(--y),
-    rgba(255,255,255,0.07),
-    transparent 70%
-  );
-
-  z-index: 0;
-}
-
-
 /* ======================================================
    4. Typing Cursor
    ====================================================== */
@@ -561,4 +540,23 @@ body::before {
   0%   { transform: translateY(0px) translateX(0px); }
   50%  { transform: translateY(-40px) translateX(30px); }
   100% { transform: translateY(20px) translateX(-25px); }
+}
+
+/* ======================================================
+   Spotlight Cursor (safe version)
+   ====================================================== */
+
+body {
+  --x: 50%;
+  --y: 50%;
+}
+
+body::marker {} /* keeps parser clean */
+
+body {
+  background-image:
+    radial-gradient(circle 180px at var(--x) var(--y),
+    rgba(255,255,255,0.07),
+    transparent 70%);
+  background-blend-mode: screen;
 }
