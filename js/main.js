@@ -75,22 +75,32 @@ document.addEventListener('mousemove', e => {
 
 
 /* ======================================================
-   Typing animation
+   Typing animation on banner view
    ====================================================== */
 
 const typing = document.querySelector('.typing');
+const bannerSection = document.querySelector('.banner');
 
-if (typing) {
+if (typing && bannerSection) {
+
   const text = typing.dataset.text;
-  let i = 0;
+  let typed = false;
 
-  function type() {
-    if (i < text.length) {
-      typing.textContent += text[i];
-      i++;
-      setTimeout(type, 80);
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !typed) {
+      typed = true;
+
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          typing.textContent += text[i];
+          i++;
+          setTimeout(type, 70);
+        }
+      }
+      type();
     }
-  }
+  }, { threshold: 0.6 });
 
-  type();
+  observer.observe(bannerSection);
 }
