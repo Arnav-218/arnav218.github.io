@@ -51,13 +51,28 @@ body {
 
 .intro-wrap {
   display: flex;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;     /* horizontal center */
+  justify-content: center; /* vertical center */
+  text-align: center;      /* center text */
+  gap: 28px;
 }
 
 .intro-text {
-  max-width: 600px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.quick-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile {
@@ -66,6 +81,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid white;
+  margin-bottom: 10px;
 }
 
 
@@ -82,11 +98,6 @@ body {
 .alias {
   opacity: .7;
   margin-bottom: 25px;
-}
-
-.about {
-  max-width: 520px;
-  line-height: 1.7;
 }
 
 
@@ -111,20 +122,22 @@ body {
    ====================================================== */
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 14px;
+  column-count: 4;
+  column-gap: 12px;
 }
 
 .grid img {
   width: 100%;
+  margin-bottom: 12px;
   border-radius: 12px;
+  display: block;
+  break-inside: avoid;
   cursor: pointer;
   transition: .3s;
 }
 
 .grid img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 
@@ -356,6 +369,9 @@ body {
     max-width: 100%;
   }
 
+  .grid {
+  column-count: 2;
+  }
 
   /* ===== Profile image ===== */
   .profile {
