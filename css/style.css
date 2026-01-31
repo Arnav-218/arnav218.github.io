@@ -269,6 +269,72 @@ body {
 #close {
   position: absolute;
   top: 20px;
+
+  /* ======================================================
+   Mobile Responsive (phones only)
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+  /* Banner smaller */
+  .banner {
+    padding: 35px 6%;
+  }
+
+  /* Stack intro vertically */
+  .intro-wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  /* Smaller profile */
+  .profile {
+    width: 130px;
+    height: 130px;
+  }
+
+  /* Smaller name */
+  .name {
+    font-size: 40px;
+  }
+
+  .alias {
+    font-size: 14px;
+  }
+
+  /* About text width full */
+  .intro-text,
+  .about {
+    max-width: 100%;
+  }
+
+  /* Sections tighter */
+  .section {
+    padding: 45px 6%;
+  }
+
+  /* Smaller section titles */
+  .section > h2 {
+    font-size: 30px;
+  }
+
+  /* Smaller music cards */
+  .music-card {
+    min-width: 170px;
+  }
+
+  .music-card img {
+    height: 170px;
+  }
+
+  /* Smaller reels */
+  .reel-row blockquote {
+    min-width: 210px;
+  }
+
+}
+
   right: 35px;
   font-size: 40px;
   cursor: pointer;
