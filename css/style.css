@@ -329,3 +329,52 @@ body {
     min-width: 210px;
   }
 }
+
+/* ======================================================
+   Fullscreen Banner
+   ====================================================== */
+
+.banner {
+  min-height: 100vh;   /* full screen height */
+  display: flex;
+  align-items: center;
+}
+
+
+/* ======================================================
+   Quick Filter Buttons
+   ====================================================== */
+
+.quick-filter {
+  margin-top: 35px;
+}
+
+.filter-text {
+  opacity: .75;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons a {
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  padding: 8px 18px;
+  border-radius: 25px;
+
+  transition: .3s;
+}
+
+.filter-buttons a:hover {
+  background: white;
+  color: black;
+}
