@@ -51,3 +51,12 @@ buttons.forEach(button => {
 
   });
 });
+
+/* ================= Parallax ================= */
+
+const banner = document.querySelector('.parallax');
+
+window.addEventListener('scroll', () => {
+  const offset = window.scrollY * 0.25;   // smaller = more subtle
+  banner.style.transform = `translateY(${offset}px)`;
+});
