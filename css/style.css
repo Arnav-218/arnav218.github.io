@@ -1,8 +1,18 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color: white;
+
+  background: linear-gradient(
+    -45deg,
+    #0f2027,
+    #203a43,
+    #2c5364,
+    #1b2a38
+  );
+
+  background-size: 400% 400%;
+  animation: gradientFlow 18s ease infinite;
 }
 
 
@@ -13,10 +23,30 @@ body {
 .banner {
   min-height: 100vh;
   padding: 40px 10%;
-  background: linear-gradient(135deg,#141e30,#243b55);
 
   display: flex;
   align-items: center;
+
+  position: relative;   /* FIX */
+  overflow: hidden;     /* FIX */
+
+  background: transparent;  /* shows animated body gradient */
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04), transparent 40%);
+  animation: floatGlow 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes floatGlow {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-25px); }
 }
 
 .intro-wrap {
@@ -391,4 +421,14 @@ body {
     min-width: 200px;
   }
 
+}
+
+/* ======================================================
+   Background Animation
+   ====================================================== */
+
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
