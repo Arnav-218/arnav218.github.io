@@ -301,43 +301,94 @@ body {
 
 
 /* ======================================================
-   Mobile
+   Mobile (phones)
    ====================================================== */
 
 @media (max-width: 768px) {
 
+  /* ===== Banner layout ===== */
+  .banner {
+    min-height: 100vh;
+    padding: 25px 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .intro-wrap {
     flex-direction: column;
     text-align: center;
-    gap: 25px;
+    gap: 22px;
   }
 
+  .intro-text {
+    max-width: 100%;
+  }
+
+
+  /* ===== Profile image ===== */
   .profile {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
 
+
+  /* ===== Text sizing ===== */
   .name {
-    font-size: 40px;
+    font-size: 42px;
+  }
+
+  .alias {
+    font-size: 14px;
+  }
+
+  .about h2 {
+    font-size: 20px;
+  }
+
+  .about p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+
+  /* ===== Section titles ===== */
+  .section > h2 {
+    font-size: 28px;
   }
 
   .section {
-    padding: 45px 6%;
+    padding: 45px 18px;
   }
 
-  .section > h2 {
-    font-size: 30px;
+
+  /* ===== Quick filter buttons ===== */
+  .filter-buttons {
+    justify-content: center;
+    gap: 10px;
   }
 
+  .filter-buttons a {
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+
+  /* ===== Music cards smaller ===== */
   .music-card {
-    min-width: 170px;
+    min-width: 160px;
   }
 
   .music-card img {
-    height: 170px;
+    height: 160px;
   }
 
+
+  /* ===== Reels smaller ===== */
   .reel-row blockquote {
-    min-width: 210px;
+    min-width: 200px;
   }
+
 }
