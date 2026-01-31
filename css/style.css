@@ -5,6 +5,7 @@ body {
   color: white;
 }
 
+
 /* ===== Banner ===== */
 .banner {
   padding: 120px 10%;
@@ -27,7 +28,8 @@ body {
   border: 4px solid white;
 }
 
-/* Text */
+
+/* ===== Text ===== */
 .name {
   font-size: 72px;
   font-weight: 800;
@@ -45,12 +47,14 @@ body {
   line-height: 1.7;
 }
 
+
 /* ===== Sections ===== */
 .section {
   padding: 70px 10%;
 }
 
-/* ===== Gallery ===== */
+
+/* ===== Gallery (Photography) ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -67,6 +71,7 @@ body {
 .grid img:hover {
   transform: scale(1.05);
 }
+
 
 /* ===== Filter buttons ===== */
 .filters {
@@ -89,6 +94,7 @@ body {
   color: black;
 }
 
+
 /* ===== Reels row ===== */
 .reel-row {
   display: flex;
@@ -99,6 +105,74 @@ body {
 .reel-row blockquote {
   min-width: 260px;
 }
+
+
+/* ======================================================
+   ===== Music Section (NEW – replaces Designs) =====
+   ====================================================== */
+
+.music-row {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 15px 5px;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Music card */
+.music-card {
+  min-width: 220px;
+  flex: 0 0 auto;
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  transition: transform .3s ease, background .3s ease;
+
+  scroll-snap-align: start;
+}
+
+.music-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  background: rgba(255,255,255,0.12);
+}
+
+/* Cover image */
+.music-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Song text */
+.music-info {
+  padding: 14px;
+}
+
+.music-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.music-info p {
+  margin: 4px 0 0;
+  opacity: .6;
+  font-size: 14px;
+}
+
+/* Hide scrollbar */
+.music-row::-webkit-scrollbar {
+  display: none;
+}
+
 
 /* ===== Contact ===== */
 .contact {
@@ -113,6 +187,7 @@ body {
   font-size: 18px;
 }
 
+
 /* ===== Animations ===== */
 .fade {
   opacity: 0;
@@ -124,6 +199,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 /* ===== Lightbox ===== */
 #lightbox {
