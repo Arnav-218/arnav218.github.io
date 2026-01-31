@@ -1,13 +1,13 @@
 /* ================= Fade animation ================= */
 const faders = document.querySelectorAll('.fade');
 
-const observer = new IntersectionObserver(entries => {
+const fadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('show');
   });
 });
 
-faders.forEach(el => observer.observe(el));
+faders.forEach(el => fadeObserver.observe(el));
 
 
 /* ================= Lightbox ================= */
@@ -23,11 +23,12 @@ imgs.forEach(img => {
   };
 });
 
+lightImg.onclick = e => e.stopPropagation();
 close.onclick = () => lightbox.style.display = 'none';
 lightbox.onclick = () => lightbox.style.display = 'none';
 
 
-/* ================= Filter buttons (FIXED) ================= */
+/* ================= Filter buttons ================= */
 const buttons = document.querySelectorAll('.filters button');
 const photos = document.querySelectorAll('.gallery img');
 
@@ -42,42 +43,32 @@ buttons.forEach(button => {
     photos.forEach(photo => {
       const category = photo.dataset.cat;
 
-      if (filter === 'all' || category === filter) {
-        photo.style.display = 'block';
-      } else {
-        photo.style.display = 'none';
-      }
+      photo.style.display =
+        (filter === 'all' || category === filter) ? 'block' : 'none';
     });
-
   });
 });
 
-/* ======================================================
-   Parallax
-   ====================================================== */
 
+/* ================= Parallax ================= */
 const banner = document.querySelector('.parallax');
 
-window.addEventListener('scroll', () => {
-  const offset = window.scrollY * 0.15;
-  banner.style.transform = `translateY(${offset}px)`;
-});
+if (banner) {
+  window.addEventListener('scroll', () => {
+    const offset = window.scrollY * 0.15;
+    banner.style.transform = `translateY(${offset}px)`;
+  });
+}
 
 
-/* ======================================================
-   Spotlight cursor
-   ====================================================== */
-
+/* ================= Spotlight cursor ================= */
 document.addEventListener('mousemove', e => {
   document.body.style.setProperty('--x', e.clientX + 'px');
   document.body.style.setProperty('--y', e.clientY + 'px');
 });
 
 
-/* ======================================================
-   Typing animation on banner view
-   ====================================================== */
-
+/* ================= Typing animation ================= */
 const typing = document.querySelector('.typing');
 const bannerSection = document.querySelector('.banner');
 
@@ -86,7 +77,7 @@ if (typing && bannerSection) {
   const text = typing.dataset.text;
   let typed = false;
 
-  const observer = new IntersectionObserver(entries => {
+  const typingObserver = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !typed) {
       typed = true;
 
@@ -102,5 +93,5 @@ if (typing && bannerSection) {
     }
   }, { threshold: 0.6 });
 
-  observer.observe(bannerSection);
+  typingObserver.observe(bannerSection);
 }
