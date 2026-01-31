@@ -434,18 +434,25 @@ body {
 }
 
 /* ======================================================
-   Film Grain Texture
+   1. Parallax smoothness
+   ====================================================== */
+
+.parallax {
+  will-change: transform;
+}
+
+
+/* ======================================================
+   2. Film Grain Texture
    ====================================================== */
 
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-
   pointer-events: none;
+  opacity: 0.05;
   z-index: 999;
-
-  opacity: 0.06;
 
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
   animation: grainMove 8s steps(8) infinite;
@@ -453,8 +460,64 @@ body::after {
 
 @keyframes grainMove {
   0%   { transform: translate(0,0); }
-  25%  { transform: translate(-5%, 5%); }
-  50%  { transform: translate(5%, -5%); }
-  75%  { transform: translate(-3%, 3%); }
+  25%  { transform: translate(-5%,5%); }
+  50%  { transform: translate(5%,-5%); }
+  75%  { transform: translate(-3%,3%); }
   100% { transform: translate(0,0); }
 }
+
+
+/* ======================================================
+   3. Spotlight Cursor
+   ====================================================== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle 180px at var(--x) var(--y),
+    rgba(255,255,255,0.07),
+    transparent 70%
+  );
+
+  z-index: 2;
+}
+
+
+/* ======================================================
+   4. Typing Cursor
+   ====================================================== */
+
+.typing::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+/* ======================================================
+   5. Scroll Arrow
+   ====================================================== */
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  opacity: .6;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translate(-50%,0); }
+  50% { transform: translate(-50%,8px); }
+}
+
