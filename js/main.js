@@ -52,11 +52,45 @@ buttons.forEach(button => {
   });
 });
 
-/* ================= Parallax ================= */
+/* ======================================================
+   Parallax
+   ====================================================== */
 
 const banner = document.querySelector('.parallax');
 
 window.addEventListener('scroll', () => {
-  const offset = window.scrollY * 0.25;   // smaller = more subtle
+  const offset = window.scrollY * 0.15;
   banner.style.transform = `translateY(${offset}px)`;
 });
+
+
+/* ======================================================
+   Spotlight cursor
+   ====================================================== */
+
+document.addEventListener('mousemove', e => {
+  document.body.style.setProperty('--x', e.clientX + 'px');
+  document.body.style.setProperty('--y', e.clientY + 'px');
+});
+
+
+/* ======================================================
+   Typing animation
+   ====================================================== */
+
+const typing = document.querySelector('.typing');
+
+if (typing) {
+  const text = typing.dataset.text;
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      typing.textContent += text[i];
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+
+  type();
+}
