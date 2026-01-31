@@ -6,9 +6,12 @@ body {
 }
 
 
-/* ===== Banner ===== */
+/* ======================================================
+   Banner
+   ====================================================== */
+
 .banner {
-  padding: 120px 10%;
+  padding: 55px 10%;   /* reduced height */
   background: linear-gradient(135deg,#141e30,#243b55);
 }
 
@@ -17,6 +20,10 @@ body {
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
+}
+
+.intro-text {
+  max-width: 600px;   /* better readability on desktop */
 }
 
 /* Profile photo */
@@ -29,7 +36,10 @@ body {
 }
 
 
-/* ===== Text ===== */
+/* ======================================================
+   Text
+   ====================================================== */
+
 .name {
   font-size: 72px;
   font-weight: 800;
@@ -41,20 +51,33 @@ body {
   margin-bottom: 25px;
 }
 
-/* About alignment fix */
 .about {
   max-width: 520px;
   line-height: 1.7;
 }
 
 
-/* ===== Sections ===== */
+/* ======================================================
+   Sections
+   ====================================================== */
+
 .section {
   padding: 70px 10%;
 }
 
+/* Bigger section titles (Photography / Reels / Music) */
+.section > h2 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+}
 
-/* ===== Gallery (Photography) ===== */
+
+/* ======================================================
+   Photography Grid
+   ====================================================== */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -73,7 +96,10 @@ body {
 }
 
 
-/* ===== Filter buttons ===== */
+/* ======================================================
+   Filter Buttons
+   ====================================================== */
+
 .filters {
   margin-bottom: 25px;
   display: flex;
@@ -95,11 +121,19 @@ body {
 }
 
 
-/* ===== Reels row ===== */
+/* ======================================================
+   Reels
+   ====================================================== */
+
 .reel-row {
   display: flex;
   gap: 20px;
   overflow-x: auto;
+}
+
+/* hide scrollbar */
+.reel-row::-webkit-scrollbar {
+  display: none;
 }
 
 .reel-row blockquote {
@@ -108,7 +142,7 @@ body {
 
 
 /* ======================================================
-   ===== Music Section (NEW – replaces Designs) =====
+   Music Cards
    ====================================================== */
 
 .music-row {
@@ -121,7 +155,11 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Music card */
+.music-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
 .music-card {
   min-width: 220px;
   flex: 0 0 auto;
@@ -145,14 +183,12 @@ body {
   background: rgba(255,255,255,0.12);
 }
 
-/* Cover image */
 .music-card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
 
-/* Song text */
 .music-info {
   padding: 14px;
 }
@@ -168,13 +204,11 @@ body {
   font-size: 14px;
 }
 
-/* Hide scrollbar */
-.music-row::-webkit-scrollbar {
-  display: none;
-}
 
+/* ======================================================
+   Contact
+   ====================================================== */
 
-/* ===== Contact ===== */
 .contact {
   padding: 70px;
   text-align: center;
@@ -187,8 +221,21 @@ body {
   font-size: 18px;
 }
 
+.contact a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-/* ===== Animations ===== */
+.contact a:hover {
+  text-decoration: underline;
+}
+
+
+/* ======================================================
+   Animations
+   ====================================================== */
+
 .fade {
   opacity: 0;
   transform: translateY(40px);
@@ -201,7 +248,10 @@ body {
 }
 
 
-/* ===== Lightbox ===== */
+/* ======================================================
+   Lightbox
+   ====================================================== */
+
 #lightbox {
   display: none;
   position: fixed;
