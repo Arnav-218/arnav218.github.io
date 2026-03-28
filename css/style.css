@@ -17,62 +17,37 @@ body {
 
 
 /* ======================================================
-   Banner (merged + fullscreen)
+   Banner (FIXED CENTERING)
    ====================================================== */
 
 .banner {
   min-height: 100vh;
-  padding: 40px 10%;
+  padding: 40px 0;
 
   display: flex;
+  justify-content: center;
   align-items: center;
 
-  position: relative;   /* FIX */
-  overflow: hidden;     /* FIX */
-
-  background: transparent;  /* shows animated body gradient */
-}
-
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04), transparent 40%);
-  animation: floatGlow 12s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes floatGlow {
-  from { transform: translateY(0px); }
-  to   { transform: translateY(-25px); }
+  position: relative;
+  overflow: hidden;
+  background: transparent;
 }
 
 .intro-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
   display: flex;
-  flex-direction: column;   /* stack vertically */
-  align-items: center;     /* horizontal center */
-  justify-content: center; /* vertical center */
-  text-align: center;      /* center text */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 28px;
+  padding: 0 20px;
 }
 
 .intro-text {
   max-width: 720px;
-  margin: 0 auto;
-}
-
-.about {
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-.quick-filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .profile {
@@ -81,7 +56,6 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid white;
-  margin-bottom: 10px;
 }
 
 
@@ -97,7 +71,19 @@ body {
 
 .alias {
   opacity: .7;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+}
+
+.about {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.quick-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -112,13 +98,12 @@ body {
 .section > h2 {
   font-size: 48px;
   font-weight: 800;
-  letter-spacing: 1px;
   margin-bottom: 35px;
 }
 
 
 /* ======================================================
-   Photography Grid
+   Photography (Masonry FIXED)
    ====================================================== */
 
 .grid {
@@ -184,9 +169,18 @@ body {
   min-width: 260px;
 }
 
+#reels {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.02)
+  );
+  backdrop-filter: blur(12px);
+}
+
 
 /* ======================================================
-   Music Cards
+   Music
    ====================================================== */
 
 .music-row {
@@ -194,7 +188,6 @@ body {
   gap: 28px;
   overflow-x: auto;
   padding: 15px 5px;
-  scroll-snap-type: x mandatory;
 }
 
 .music-row::-webkit-scrollbar {
@@ -203,19 +196,17 @@ body {
 
 .music-card {
   min-width: 220px;
-  flex: 0 0 auto;
   text-decoration: none;
   color: white;
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
   border-radius: 18px;
   overflow: hidden;
-  transition: transform .3s ease, background .3s ease;
+  transition: .3s;
 }
 
 .music-card:hover {
   transform: translateY(-8px) scale(1.04);
-  background: rgba(255,255,255,0.12);
 }
 
 .music-card img {
@@ -228,16 +219,6 @@ body {
   padding: 14px;
 }
 
-.music-info h4 {
-  margin: 0;
-  font-size: 16px;
-}
-
-.music-info p {
-  margin-top: 4px;
-  opacity: .6;
-}
-
 
 /* ======================================================
    Contact
@@ -247,17 +228,11 @@ body {
   padding: 70px;
   text-align: center;
   background: rgba(0,0,0,.4);
-  backdrop-filter: blur(10px);
-}
-
-.contact-item {
-  margin: 12px 0;
 }
 
 .contact a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
 }
 
 .contact a:hover {
@@ -309,260 +284,30 @@ body {
 
 
 /* ======================================================
-   Quick Filter Buttons
+   Effects
    ====================================================== */
 
-.quick-filter {
-  margin-top: 35px;
-}
-
-.filter-text {
-  opacity: .75;
-  margin-bottom: 12px;
-}
-
-.filter-buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.filter-buttons a {
-  text-decoration: none;
-  color: white;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 8px 18px;
-  border-radius: 25px;
-  transition: .3s;
-}
-
-.filter-buttons a:hover {
-  background: white;
-  color: black;
-}
-
-
-/* ======================================================
-   Mobile (phones)
-   ====================================================== */
-
-@media (max-width: 768px) {
-
-  /* ===== Banner layout ===== */
-  .banner {
-    min-height: 100vh;
-    padding: 25px 18px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .intro-wrap {
-    flex-direction: column;
-    text-align: center;
-    gap: 22px;
-  }
-
-  .intro-text {
-    max-width: 100%;
-  }
-
-  .grid {
-  column-count: 2;
-  }
-
-  /* ===== Profile image ===== */
-  .profile {
-    width: 120px;
-    height: 120px;
-  }
-
-
-  /* ===== Text sizing ===== */
-  .name {
-    font-size: 42px;
-  }
-
-  .alias {
-    font-size: 14px;
-  }
-
-  .about h2 {
-    font-size: 20px;
-  }
-
-  .about p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-
-  /* ===== Section titles ===== */
-  .section > h2 {
-    font-size: 28px;
-  }
-
-  .section {
-    padding: 45px 18px;
-  }
-
-
-  /* ===== Quick filter buttons ===== */
-  .filter-buttons {
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .filter-buttons a {
-    padding: 10px 16px;
-    font-size: 14px;
-    border-radius: 20px;
-  }
-
-
-  /* ===== Music cards smaller ===== */
-  .music-card {
-    min-width: 160px;
-  }
-
-  .music-card img {
-    height: 160px;
-  }
-
-
-  /* ===== Reels smaller ===== */
-  .reel-row blockquote {
-    min-width: 200px;
-  }
-
-}
-
-/* ======================================================
-   Background Animation
-   ====================================================== */
-
+/* Gradient animation */
 @keyframes gradientFlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ======================================================
-   1. Parallax smoothness
-   ====================================================== */
-
-.parallax {
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-
-/* ======================================================
-   2. Film Grain Texture
-   ====================================================== */
-
+/* Grain */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
   opacity: 0.05;
+  pointer-events: none;
   z-index: -1;
-
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  animation: grainMove 8s steps(8) infinite;
 }
 
-@keyframes grainMove {
-  0%   { transform: translate(0,0); }
-  25%  { transform: translate(-5%,5%); }
-  50%  { transform: translate(5%,-5%); }
-  75%  { transform: translate(-3%,3%); }
-  100% { transform: translate(0,0); }
-}
-
-/* ======================================================
-   4. Typing Cursor
-   ====================================================== */
-
-.typing::after {
-  content: "|";
-  margin-left: 4px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-
-/* ======================================================
-   5. Scroll Arrow
-   ====================================================== */
-
-.scroll-arrow {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-  opacity: .6;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%,100% { transform: translate(-50%,0); }
-  50% { transform: translate(-50%,8px); }
-}
-
-/* ======================================================
-   Reels section background
-   ====================================================== */
-
-#reels {
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.04),
-    rgba(255,255,255,0.02)
-  );
-
-  backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-/* ======================================================
-   Floating glow bubbles (page depth)
-   ====================================================== */
-
+/* Spotlight */
 body::before {
   content: "";
-  position: fixed;
-  inset: -20%;
-  pointer-events: none;
-  z-index: 0;
-
-  background:
-    radial-gradient(circle 200px at 20% 30%, rgba(255,255,255,0.06), transparent 70%),
-    radial-gradient(circle 180px at 80% 60%, rgba(255,255,255,0.05), transparent 70%),
-    radial-gradient(circle 160px at 40% 80%, rgba(255,255,255,0.04), transparent 70%);
-
-  animation: floatBubbles 25s ease-in-out infinite alternate;
-}
-
-@keyframes floatBubbles {
-  0%   { transform: translateY(0px) translateX(0px); }
-  50%  { transform: translateY(-40px) translateX(30px); }
-  100% { transform: translateY(20px) translateX(-25px); }
-}
-
-/* ======================================================
-   Spotlight Cursor (correct version)
-   ====================================================== */
-
-.spotlight {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -573,4 +318,50 @@ body::before {
     rgba(255,255,255,0.07),
     transparent 70%
   );
+}
+
+/* Scroll arrow */
+.scroll-arrow {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .6;
+}
+
+
+/* ======================================================
+   Mobile
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+  .name {
+    font-size: 42px;
+  }
+
+  .profile {
+    width: 120px;
+    height: 120px;
+  }
+
+  .section {
+    padding: 45px 18px;
+  }
+
+  .section > h2 {
+    font-size: 28px;
+  }
+
+  .grid {
+    column-count: 2;
+  }
+
+  .music-card {
+    min-width: 160px;
+  }
+
+  .reel-row blockquote {
+    min-width: 200px;
+  }
 }
