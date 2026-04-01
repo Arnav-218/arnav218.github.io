@@ -1,4 +1,14 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.section,
+.banner {
+  scroll-snap-align: start;
+}
+
 body {
+  overflow-y: scroll;
   margin: 0;
   font-family: 'Poppins', sans-serif;
   color: white;
@@ -118,11 +128,23 @@ body {
   display: block;
   break-inside: avoid;
   cursor: pointer;
-  transition: .3s;
+
+  /* Stagger animation base */
+  opacity: 0;
+  transform: translateY(20px);
+
+  /* Combined transitions */
+  transition: transform .4s ease, filter .4s ease, opacity .6s ease;
+}
+
+.grid img.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .grid img:hover {
-  transform: scale(1.04);
+  transform: scale(1.06);
+  filter: brightness(0.75);
 }
 
 
