@@ -90,6 +90,27 @@ if (typing && bannerSection) {
         }
       }
       type();
+
+      /* ================= Stagger Animation ================= */
+
+const galleryImgs = document.querySelectorAll('.gallery img');
+
+const galleryObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      galleryImgs.forEach((img, i) => {
+        setTimeout(() => {
+          img.classList.add('show');
+        }, i * 80);   // stagger delay
+      });
+
+      galleryObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+
+galleryObserver.observe(document.querySelector('.gallery'));
     }
   }, { threshold: 0.6 });
 
