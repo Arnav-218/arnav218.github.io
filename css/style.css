@@ -151,6 +151,39 @@ body {
 }
 
 
+/* ===== ADD THIS EXACTLY HERE ===== */
+
+.filter-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.filter-buttons a {
+  text-decoration: none !important;
+  color: white !important;
+
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  padding: 10px 20px;
+  border-radius: 25px;
+
+  display: inline-block;
+  transition: .3s;
+}
+
+.filter-buttons a:hover {
+  background: white;
+  color: black !important;
+}
+
+.filter-buttons a:visited,
+.filter-buttons a:active {
+  color: white;
+  text-decoration: none;
+}
+
 /* ======================================================
    Reels
    ====================================================== */
