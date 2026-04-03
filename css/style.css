@@ -3,7 +3,8 @@ html {
 }
 
 .section,
-.banner {
+.banner,
+.contact {
   scroll-snap-align: start;
 }
 
