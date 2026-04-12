@@ -1,3 +1,7 @@
+/* ======================================================
+   Scroll Snap
+   ====================================================== */
+
 html {
   scroll-snap-type: y proximity;
 }
@@ -26,8 +30,42 @@ body {
   animation: gradientFlow 18s ease infinite;
 }
 
+
 /* ======================================================
-   Banner (FIXED CENTERING)
+   NEW BACKGROUND (Ladybug Pattern)
+   ====================================================== */
+
+.ladybug-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+}
+
+.ladybug-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 20%),
+    radial-gradient(circle, transparent 10%, rgba(255,255,255,0.03) 20%);
+
+  background-size: 35px 35px;
+  animation: ladybugMove 10s linear infinite;
+}
+
+@keyframes ladybugMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20%, 20%); }
+}
+
+
+/* ======================================================
+   Banner
    ====================================================== */
 
 .banner {
@@ -113,7 +151,7 @@ body {
 
 
 /* ======================================================
-   Photography (Masonry FIXED)
+   Photography
    ====================================================== */
 
 .grid {
@@ -129,11 +167,9 @@ body {
   break-inside: avoid;
   cursor: pointer;
 
-  /* Stagger animation base */
   opacity: 0;
   transform: translateY(20px);
 
-  /* Combined transitions */
   transition: transform .4s ease, filter .4s ease, opacity .6s ease;
 }
 
@@ -149,7 +185,7 @@ body {
 
 
 /* ======================================================
-   Filter Buttons
+   Filters
    ====================================================== */
 
 .filters {
@@ -172,9 +208,7 @@ body {
   color: black;
 }
 
-
-/* ===== ADD THIS EXACTLY HERE ===== */
-
+/* Banner buttons */
 .filter-buttons {
   display: flex;
   gap: 14px;
@@ -200,11 +234,6 @@ body {
   color: black !important;
 }
 
-.filter-buttons a:visited,
-.filter-buttons a:active {
-  color: white;
-  text-decoration: none;
-}
 
 /* ======================================================
    Reels
@@ -296,53 +325,9 @@ body {
 
 
 /* ======================================================
-   Animations
-   ====================================================== */
-
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: .8s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ======================================================
-   Lightbox
-   ====================================================== */
-
-#lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.95);
-  justify-content: center;
-  align-items: center;
-}
-
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-}
-
-#close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-
-/* ======================================================
    Effects
    ====================================================== */
 
-/* Gradient animation */
 @keyframes gradientFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -375,15 +360,6 @@ body::before {
   );
 }
 
-/* Scroll arrow */
-.scroll-arrow {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: .6;
-}
-
 
 /* ======================================================
    Mobile
@@ -391,9 +367,7 @@ body::before {
 
 @media (max-width: 768px) {
 
-  .name {
-    font-size: 42px;
-  }
+  .name { font-size: 42px; }
 
   .profile {
     width: 120px;
@@ -418,36 +392,5 @@ body::before {
 
   .reel-row blockquote {
     min-width: 200px;
-  }
-}
-
-/* From Uiverse.io by elijahgummer */ 
-.container {
-  width: 100%;
-  height: 100%;
-  background: lightblue;
-  position: relative;
-  overflow: hidden;
-}
-
-.container::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, #3498db 10%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #3498db 20%);
-  background-size: 30px 30px; /* Adjust the size of the pattern */
-  animation: moveBackground 8s linear infinite; /* Adjust the animation duration and timing function */
-}
-
-@keyframes moveBackground {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(20%, 20%);
   }
 }
