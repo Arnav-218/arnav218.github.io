@@ -50,11 +50,13 @@ body {
   width: 200%;
   height: 200%;
 
+  /* Stronger + slightly colored for better visibility */
   background:
-    radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 20%),
-    radial-gradient(circle, transparent 10%, rgba(255,255,255,0.03) 20%);
+    radial-gradient(circle, rgba(100,180,255,0.16) 10%, transparent 22%),
+    radial-gradient(circle, transparent 10%, rgba(100,180,255,0.10) 22%);
 
-  background-size: 35px 35px;
+  background-size: 32px 32px;
+
   animation: ladybugMove 10s linear infinite;
 }
 
